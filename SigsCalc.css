@@ -1,0 +1,26 @@
+body{
+	background: silver;
+	font-size: 100%;
+}
+#calculatorsbody{
+	background: black;
+	font-size: 2em;
+	color: orange;
+	width: 600px;
+	height: 600px;
+	margin: .5em .5em;
+	border: 0.1em solid gray;
+}
+#menubars{
+	margin: 0.1em 0.1em;
+}
+.menubarobjects{
+	margin: 0.1em 0.1em;
+	float: left;
+}
+#numberfield{
+	text-align: right;
+	margin: .1em .1em;
+	border: 0.1em solid grey;
+	clear: both;
+}
