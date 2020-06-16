@@ -6,8 +6,8 @@ body{
 	background: black;
 	font-size: 1em;
 	color: orange;
-	width: 40%;
-	height: 90%;
+	width: 30%;
+	height: 70%;
 	margin: .5em .5em;
 	border: 0.1em solid gray;
 }
@@ -25,6 +25,7 @@ body{
 	margin: .1em .1em;
 	border: 0.1em solid grey;
 	clear: both;
+	font-size: 1.2em;
 }
 table{
 	background: black;
@@ -33,6 +34,15 @@ table{
 	text-align: center;
 	color: orange;
 }
-td{
-	padding: .5em;
+.functionButton{
+	border-radius: 30%;
+	background: black;
+	border: none;
+	color: orange;
+	padding: 1em;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: .7em;
+	border: 0.1em solid gray;
 }
