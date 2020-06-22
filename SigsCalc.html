@@ -8,10 +8,37 @@ http://www.w3.rg/TR/xtml1/DTD/xtml1-transitional.dtd">
 </HEAD>
 <BODY>
 	<div id="calculatorsbody">
-		<div id="menubars">
-			<div class="menubarobjects">File</div>
-			<div class="menubarobjects">Edit</div>
-			<div class="menubarobjects">Help</div>
+		<div class="navbar">
+			<div class="dropdown">
+			<button class="dropbtn" onclick="myFunction('myFirstDropdown')">File
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content" id="myFirstDropdown">
+				<div>Open</div>
+				<div>Save</div>
+				<div>Save as...</div>
+				<div>Exit</div>
+			</div>
+			</div>
+			<div class="dropdown">
+			<button class="dropbtn" onclick="myFunction('mySecondDropdown')">Edit
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content" id="mySecondDropdown">
+				<div>Copy</div>
+				<div>Paste</div>
+				<div>Clear</div>
+			</div>
+			</div>
+			<div class="dropdown">
+			<button class="dropbtn" onclick="myFunction('myThirdDropdown')">Help
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content" id="myThirdDropdown">
+				<div>Help</div>
+				<div>About</div>
+			</div>
+			</div>
 		</div>
 		<div id="numberField">000</div>
 		<table border="1">
@@ -24,6 +51,21 @@ http://www.w3.rg/TR/xtml1/DTD/xtml1-transitional.dtd">
 <script type="text/javascript">
 	function whenClicked(x){
 		document.getElementById("numberField").innerHTML = x;
+	}
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+	function myFunction(x) {
+		document.getElementById(x).classList.toggle("show");
+	}
+
+// Close the dropdown if the user clicks outside of it
+	window.onclick = function(e) {
+		if (!e.target.matches('.dropbtn')) {
+		var myFirstDropdown = document.getElementById("myFirstDropdown");
+			if (myFirstDropdown.classList.contains('show')) {
+			myFirstDropdown.classList.remove('show');
+			}
+		}
 	}
 </script>
 </BODY>
