@@ -27,7 +27,7 @@ http://www.w3.rg/TR/xtml1/DTD/xtml1-transitional.dtd">
 			<div class="dropdown-content" id="mySecondDropdown">
 				<div>Copy</div>
 				<div>Paste</div>
-				<div>Clear</div>
+				<div onclick="raze_it_to_the_ground();">Clear</div>
 			</div>
 			</div>
 			<div class="dropdown">
@@ -40,17 +40,40 @@ http://www.w3.rg/TR/xtml1/DTD/xtml1-transitional.dtd">
 			</div>
 			</div>
 		</div>
-		<div id="numberField">000</div>
+		<div id="numberField">0</div>
 		<table border="1">
-			<tr><td><button class="functionButton" onclick="whenClicked(1);">1</button></td><td><button class="functionButton" onclick="whenClicked(2);">2</button></td><td><button class="functionButton" onclick="whenClicked(3);">3</button></td><td><button class="functionButton" onclick="whenClicked('+');">+</button></td></tr>
-			<tr><td><button class="functionButton" onclick="whenClicked(4);">4</button></td><td><button class="functionButton" onclick="whenClicked(5);">5</button></td><td><button class="functionButton" onclick="whenClicked(6);">6</button></td><td><button class="functionButton" onclick="whenClicked('-');">-</button></td></tr>
-			<tr><td><button class="functionButton" onclick="whenClicked(7);">7</button></td><td><button class="functionButton" onclick="whenClicked(8);">8</button></td><td><button class="functionButton" onclick="whenClicked(9);">9</button></td><td><button class="functionButton" onclick="whenClicked('*');">*</button></td></tr>
-			<tr><td><button class="functionButton" onclick="whenClicked(',');">,</button></td><td><button class="functionButton" onclick="whenClicked(0);">0</button></td><td><button class="functionButton" onclick="whenClicked('=');">=</button></td><td><button class="functionButton" onclick="whenClicked('/');">/</button></td></tr>
+			<tr><td><button class="functionButton" onclick="whenNumButClicked(1);">1</button></td><td><button class="functionButton" onclick="whenNumButClicked(2);">2</button></td><td><button class="functionButton" onclick="whenNumButClicked(3);">3</button></td><td><button class="functionButton" onclick="whenFuncButClicked('+');">+</button></td></tr>
+			<tr><td><button class="functionButton" onclick="whenNumButClicked(4);">4</button></td><td><button class="functionButton" onclick="whenNumButClicked(5);">5</button></td><td><button class="functionButton" onclick="whenNumButClicked(6);">6</button></td><td><button class="functionButton" onclick="whenFuncButClicked('-');">-</button></td></tr>
+			<tr><td><button class="functionButton" onclick="whenNumButClicked(7);">7</button></td><td><button class="functionButton" onclick="whenNumButClicked(8);">8</button></td><td><button class="functionButton" onclick="whenNumButClicked(9);">9</button></td><td><button class="functionButton" onclick="whenFuncButClicked('*');">*</button></td></tr>
+			<tr><td><button class="functionButton" onclick="whenFuncButClicked(',');">,</button></td><td><button class="functionButton" onclick="whenNumButClicked(0);">0</button></td><td><button class="functionButton" onclick="whenFuncButClicked('=');">=</button></td><td><button class="functionButton" onclick="whenFuncButClicked('/');">/</button></td></tr>
 		</table>
 	</div>
 <script type="text/javascript">
-	function whenClicked(x){
-		document.getElementById("numberField").innerHTML = x;
+	var numberFieldText = "";
+// Determines what happens when a number button is pressed
+	function whenNumButClicked(x){
+		numberFieldText = numberFieldText+x;
+		document.getElementById("numberField").innerHTML = numberFieldText;
+	}
+// Determines what happens when a mathematical button is pressed
+	function whenFuncButClicked(y){
+		switch(y){
+			case ",":
+				if (numberFieldText.includes(",")){
+					document.getElementById("numberField").innerHTML = numberFieldText;
+				}else{
+					numberFieldText = numberFieldText+y;
+					document.getElementById("numberField").innerHTML = numberFieldText;
+				}
+				break;
+			default:
+				raze_it_to_the_ground();
+		}
+	}
+// Clears the number field
+	function raze_it_to_the_ground(){
+		numberFieldText = "";
+		document.getElementById("numberField").innerHTML = "0";
 	}
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
@@ -64,6 +87,14 @@ toggle between hiding and showing the dropdown content */
 		var myFirstDropdown = document.getElementById("myFirstDropdown");
 			if (myFirstDropdown.classList.contains('show')) {
 			myFirstDropdown.classList.remove('show');
+			}
+		var myFirstDropdown = document.getElementById("mySecondDropdown");
+			if (mySecondDropdown.classList.contains('show')) {
+			mySecondDropdown.classList.remove('show');
+			}
+		var myFirstDropdown = document.getElementById("myThirdDropdown");
+			if (myThirdDropdown.classList.contains('show')) {
+			myThirdDropdown.classList.remove('show');
 			}
 		}
 	}

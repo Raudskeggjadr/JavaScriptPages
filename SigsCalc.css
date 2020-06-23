@@ -11,6 +11,7 @@ body{
 	margin: .5em .5em;
 	border: 0.1em solid gray;
 }
+                      /* -----Drop down menu content doesn't change color when hovered over, need attention!----- */
 .navbar {
   overflow: hidden;
   background-color: black;
@@ -48,6 +49,7 @@ body{
 }
 
 .dropdown-content {
+  cursor: pointer;
   display: none;
   position: absolute;
   background-color: black;
@@ -66,7 +68,7 @@ body{
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: red;
 }
 
 .show {
