@@ -10,9 +10,7 @@ http://www.w3.rg/TR/xtml1/DTD/xtml1-transitional.dtd">
 	<div id="calculatorsbody">
 		<div class="navbar">
 			<div class="dropdown">
-			<button class="dropbtn" onclick="myFunction('myFirstDropdown')">File
-				<i class="fa fa-caret-down"></i>
-			</button>
+			<button class="dropbtn" onclick="myFunction('myFirstDropdown')">File</button>
 			<div class="dropdown-content" id="myFirstDropdown">
 				<div>Open</div>
 				<div>Save</div>
@@ -21,9 +19,7 @@ http://www.w3.rg/TR/xtml1/DTD/xtml1-transitional.dtd">
 			</div>
 			</div>
 			<div class="dropdown">
-			<button class="dropbtn" onclick="myFunction('mySecondDropdown')">Edit
-				<i class="fa fa-caret-down"></i>
-			</button>
+			<button class="dropbtn" onclick="myFunction('mySecondDropdown')">Edit</button>
 			<div class="dropdown-content" id="mySecondDropdown">
 				<div>Copy</div>
 				<div>Paste</div>
@@ -31,9 +27,7 @@ http://www.w3.rg/TR/xtml1/DTD/xtml1-transitional.dtd">
 			</div>
 			</div>
 			<div class="dropdown">
-			<button class="dropbtn" onclick="myFunction('myThirdDropdown')">Help
-				<i class="fa fa-caret-down"></i>
-			</button>
+			<button class="dropbtn" onclick="myFunction('myThirdDropdown')">Help</button>
 			<div class="dropdown-content" id="myThirdDropdown">
 				<div>Help</div>
 				<div>About</div>
@@ -50,6 +44,9 @@ http://www.w3.rg/TR/xtml1/DTD/xtml1-transitional.dtd">
 	</div>
 <script type="text/javascript">
 	var numberFieldText = "";
+	var myFirstDropdown = document.getElementById("myFirstDropdown");
+	var mySecondDropdown = document.getElementById("mySecondDropdown");
+	var myThirdDropdown = document.getElementById("myThirdDropdown");
 // Determines what happens when a number button is pressed
 	function whenNumButClicked(x){
 		numberFieldText = numberFieldText+x;
@@ -78,21 +75,58 @@ http://www.w3.rg/TR/xtml1/DTD/xtml1-transitional.dtd">
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 	function myFunction(x) {
-		document.getElementById(x).classList.toggle("show");
+		switch(x){
+			case 'myFirstDropdown':
+				if (myFirstDropdown.classList.contains('show')) {
+				document.getElementById(x).classList.toggle("show");
+				}else if (mySecondDropdown.classList.contains('show')) {
+				mySecondDropdown.classList.remove('show');
+				document.getElementById(x).classList.toggle("show");
+				}else if (myThirdDropdown.classList.contains('show')) {
+				myThirdDropdown.classList.remove('show');
+				document.getElementById(x).classList.toggle("show");
+				}else{
+				document.getElementById(x).classList.toggle("show");
+				}
+				break;
+			case 'mySecondDropdown':
+				if (mySecondDropdown.classList.contains('show')) {
+				document.getElementById(x).classList.toggle("show");
+				}else if (myFirstDropdown.classList.contains('show')) {
+				myFirstDropdown.classList.remove('show');
+				document.getElementById(x).classList.toggle("show");
+				}else if (myThirdDropdown.classList.contains('show')) {
+				myThirdDropdown.classList.remove('show');
+				document.getElementById(x).classList.toggle("show");
+				}else{
+				document.getElementById(x).classList.toggle("show");
+				}
+				break;
+			case 'myThirdDropdown':
+				if (myThirdDropdown.classList.contains('show')) {
+				document.getElementById(x).classList.toggle("show");
+				}else if (myFirstDropdown.classList.contains('show')) {
+				myFirstDropdown.classList.remove('show');
+				document.getElementById(x).classList.toggle("show");
+				}else if (mySecondDropdown.classList.contains('show')) {
+				mySecondDropdown.classList.remove('show');
+				document.getElementById(x).classList.toggle("show");
+				}else{
+				document.getElementById(x).classList.toggle("show");
+				}
+				break;
+		}
 	}
 
 // Close the dropdown if the user clicks outside of it
 	window.onclick = function(e) {
 		if (!e.target.matches('.dropbtn')) {
-		var myFirstDropdown = document.getElementById("myFirstDropdown");
 			if (myFirstDropdown.classList.contains('show')) {
 			myFirstDropdown.classList.remove('show');
 			}
-		var myFirstDropdown = document.getElementById("mySecondDropdown");
 			if (mySecondDropdown.classList.contains('show')) {
 			mySecondDropdown.classList.remove('show');
 			}
-		var myFirstDropdown = document.getElementById("myThirdDropdown");
 			if (myThirdDropdown.classList.contains('show')) {
 			myThirdDropdown.classList.remove('show');
 			}
